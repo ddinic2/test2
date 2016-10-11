@@ -2,9 +2,371 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Ladies T-Shirts</title>
+    <link rel="import" href="bower_components/paper-button/paper-button.html">
+    <link rel="import" href="bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+    <link rel="import" href="bower_components/paper-toolbar/paper-toolbar.html">
+    <link rel="import" href="bower_components/paper-tabs/paper-tab.html">
+    <link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
+    <link rel="import" href="bower_components/paper-header-panel/paper-header-panel.html">
+
+    <style is="custom-style" include="iron-flex iron-flex-factors iron-flex-alignment">
+        paper-button[active]{
+            /*background-color: red;*/
+        }
+        paper-button{
+            width: 20%;
+            margin-bottom: 40px;
+            margin-top: 20px;
+            border: 2px solid black;
+
+        }
+        body {
+            margin: 0;
+            font-family: 'Roboto', 'Noto', sans-serif;
+            font-size: 12px;
+            line-height: 1.5;
+            min-height: 100vh;
+            text-align: center;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.3em;
+            color: #202020;
+            padding: 0 16px;
+            overflow: visible;
+        }
+
+        h2 {
+            margin-top: 20px;
+            text-align: center;
+            color: black;
+            text-decoration: none;  !important;
+            padding-bottom: 20px;
+        }
+        a{
+            text-decoration: none; !important;
+        }
+
+        /*postoji i neki prostor prazan uz levu ivicu a ne mogu da provalim sta je*/
+        :root {
+            /*kako da kreiram da mi peper tabs (tj.flex) zauzim 80% display-a i da bude na sredini pozicioniran
+            width:80% ga skupi na 80%ali je uz levu ivicu*/
+            /*tj. flex container bi trebao da zauzima 90% ali nije tako...nesto mi tu nije bas jasno,
+            vamo sam imao 12 kolona, container, container-fluid...
+            kontam da redjam elemente horizontalno ili vertikalno*/
+            --my-custom-color: gray;
+            --paper-tab-ink: var(--my-custom-color);
+            /* custom CSS property */
+            --paper-tabs-selection-bar-color: black;
+
+            /* custom CSS mixin */
+            --paper-tabs: {
+                color: var(--default-primary-color); /* variable defined in default-theme.html */
+                font-size: 13px;
+                margin-top: 10px;
+            }
+        }
+        paper-tab{
+            letter-spacing: 1px;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        a:-webkit-any-link{
+            color: black;
+            padding-top: 20px;
+        }
+        .banner{
+            padding-top: 30px;
+            opacity: 1;
+            transition: opacity 0.5s;
+        }
+        .flex{
+            margin-bottom: 30px;
+        }
+        small{
+            color: gray;
+        }
+        .footer{
+            margin-top: 40px;
+        }
+        /*zasto ne mogu da pregazim sa ovim da zadnji link ima underline?*/
+        .footer>flex>a{
+            text-decoration: underline;
+        }
+        .banner_ladies_tshirts{
+            width: 100%;
+        }
+        .banner_mens_tshirts{
+            width: 100%;
+        }
+
+
+        /*------nisam resio css file!!!-------*/
+
+    </style>
 </head>
-<body>
-$END$
+<body class="flex container">
+<div class="layout vertical center">
+    <h2>
+        <a href="index_index.html">SHOP</a>
+    </h2>
+    <div class="navigation">
+        <paper-tabs selected="0">
+            <paper-tab link>
+                <a href="Men_s_Outerwear.html" class="link" tabindex="-1">Men's Outerwear</a>
+            </paper-tab>
+            <paper-tab link>
+                <a href="Ladies_outerwear.html" class="link" tabindex="-1">Ladies Outerwear</a>
+            </paper-tab>
+            <paper-tab link>
+                <a href="Men_s_T_Shirts.html" class="link" tabindex="-1">Men's T-Shirts</a>
+            </paper-tab>
+            <paper-tab link>
+                <a href="Ladies_T_Shirts.html" class="link" tabindex="-1">Ladies T-Shirts</a>
+            </paper-tab>
+        </paper-tabs>
+    </div>
+    <div class="flex">
+        <a href="Ladies_T_Shirts.html">
+            <img src="https://shop.polymer-project.org/images/ladies_tshirts.jpg" class="banner">
+        </a>
+    </div>
+    <h4>
+        Ladies T-Shirts<br>
+    </h4>
+    <small>
+        (19 items)
+    </small>
+</div>
+<div class="layout vertical">
+    <div class="layout horizontal">
+        <div class="flex">
+            <a href="#####">
+                <img src="https://shop.polymer-project.org/data/images/10-23180B.jpg">
+            </a>
+            <p>
+                Men's Tech Shell Full-Zip<br>
+            </p>
+            <small>
+                $50.20
+            </small>
+        </div>
+        <div class="flex">
+            <a href="#####">
+                <img src="https://shop.polymer-project.org/data/images/10-23226B.jpg">
+            </a>
+            <p>
+                Anvil L/S Crew Neck - Grey<br>
+            </p>
+            <small>
+                $22.15
+            </small>
+        </div>
+        <div class="flex">
+            <a href="#####">
+                <img src="https://shop.polymer-project.org/data/images/10-23179B.jpg">
+            </a>
+            <p>
+                Green Flex Fleece Zip Hoodie<br>
+            </p>
+            <small>
+                $45.65
+            </small>
+        </div>
+    </div>
+    <div class="layout horizontal">
+        <div class="flex">
+            <a href="#####">
+                <img src="https://shop.polymer-project.org/data/images/10-23178B.jpg">
+            </a>
+            <p>
+                Android Nylon Packable Jacket<br>
+            </p>
+            <small>
+                $33.60
+            </small>
+        </div>
+        <div class="flex">
+            <a href="#####">
+                <img src="https://shop.polymer-project.org/data/images/10-23177B.jpg">
+            </a>
+            <p>
+                YouTube Ultimate Hooded Sweatshirt<br>
+            </p>
+            <small>
+                $32.35
+            </small>
+        </div>
+        <div class="flex">
+            <a href="#####">
+                <img src="https://shop.polymer-project.org/data/images/10-23172B.jpg">
+            </a>
+            <p>
+                Grey Heather Fleece Zip Hoodie<br>
+            </p>
+            <small>
+                $38.85
+            </small>
+        </div>
+    </div>
+    <div class="layout horizontal">
+        <div class="flex">
+            <a href="#####">
+                <img src="https://shop.polymer-project.org/data/images/10-23227B.jpg">
+            </a>
+            <p>
+                Men's Tech Shell Full-Zip<br>
+            </p>
+            <small>
+                $50.20
+            </small>
+        </div>
+        <div class="flex">
+            <a href="#####">
+                <img src="https://shop.polymer-project.org/data/images/10-23228B.jpg">
+            </a>
+            <p>
+                Anvil L/S Crew Neck - Grey<br>
+            </p>
+            <small>
+                $22.15
+            </small>
+        </div>
+        <div class="flex">
+            <a href="#####">
+                <img src="https://shop.polymer-project.org/data/images/10-23176B.jpg">
+            </a>
+            <p>
+                Green Flex Fleece Zip Hoodie<br>
+            </p>
+            <small>
+                $45.65
+            </small>
+        </div>
+    </div>
+    <div class="layout horizontal">
+        <div class="flex">
+            <a href="#####">
+                <img src="https://shop.polymer-project.org/data/images/10-23173B.jpg">
+            </a>
+            <p>
+                Android Nylon Packable Jacket<br>
+            </p>
+            <small>
+                $33.60
+            </small>
+        </div>
+        <div class="flex">
+            <a href="#####">
+                <img src="https://shop.polymer-project.org/data/images/10-23171B.jpg">
+            </a>
+            <p>
+                YouTube Ultimate Hooded Sweatshirt<br>
+            </p>
+            <small>
+                $32.35
+            </small>
+        </div>
+        <div class="flex">
+            <a href="#####">
+                <img src="https://shop.polymer-project.org/data/images/10-23225B.jpg">
+            </a>
+            <p>
+                Grey Heather Fleece Zip Hoodie<br>
+            </p>
+            <small>
+                $38.85
+            </small>
+        </div>
+    </div>
+    <div class="layout horizontal">
+        <div class="flex">
+            <a href="#####">
+                <img src="https://shop.polymer-project.org/data/images/10-23198B.jpg">
+            </a>
+            <p>
+                Android Nylon Packable Jacket<br>
+            </p>
+            <small>
+                $33.60
+            </small>
+        </div>
+        <div class="flex">
+            <a href="#####">
+                <img src="https://shop.polymer-project.org/data/images/10-23229B.jpg">
+            </a>
+            <p>
+                YouTube Ultimate Hooded Sweatshirt<br>
+            </p>
+            <small>
+                $32.35
+            </small>
+        </div>
+        <div class="flex">
+            <a href="#####">
+                <img src="https://shop.polymer-project.org/data/images/10-23169B.jpg">
+            </a>
+            <p>
+                Grey Heather Fleece Zip Hoodie<br>
+            </p>
+            <small>
+                $38.85
+            </small>
+        </div>
+    </div>
+    <div class="layout horizontal">
+        <div class="flex">
+            <a href="#####">
+                <img src="https://shop.polymer-project.org/data/images/10-23174B.jpg">
+            </a>
+            <p>
+                Android Nylon Packable Jacket<br>
+            </p>
+            <small>
+                $33.60
+            </small>
+        </div>
+        <div class="flex">
+            <a href="#####">
+                <img src="https://shop.polymer-project.org/data/images/10-23073B.jpg">
+            </a>
+            <p>
+                YouTube Ultimate Hooded Sweatshirt<br>
+            </p>
+            <small>
+                $32.35
+            </small>
+        </div>
+        <div class="flex">
+            <a href="#####">
+                <img src="https://shop.polymer-project.org/data/images/10-23230B.jpg">
+            </a>
+            <p>
+                Grey Heather Fleece Zip Hoodie<br>
+            </p>
+            <small>
+                $38.85
+            </small>
+        </div>
+    </div>
+    <div class="layout horizontal">
+        <div class="flex">
+            <a href="#####">
+                <img src="https://shop.polymer-project.org/data/images/10-23069B.jpg">
+            </a>
+            <p>
+                Android Nylon Packable Jacket<br>
+            </p>
+            <small>
+                $33.60
+            </small>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <div class="flex">
+        <a href="https://www.polymer-project.org/1.0/">Made by Polymer</a>
+    </div>
+</div>
 </body>
 </html>
