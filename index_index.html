@@ -16,6 +16,18 @@
     <link rel="import" href="bower_components/paper-menu/paper-menu.html">
     <link rel="import" href="bower_components/paper-menu/paper-menu-shared-styles.html">
     <link rel="import" href="bower_components/paper-menu/paper-submenu.html">
+    <link rel="import" href="bower_components/paper-item/paper-item.html">
+    <link rel="import" href="bower_components/iron-image/iron-image.html">
+
+    <link rel="import" href="bower_components/app-layout/app-header-layout/app-header-layout.html">
+    <link rel="import" href="bower_components/app-layout/app-header/app-header.html">
+    <link rel="import" href="bower_components/app-layout/app-toolbar/app-toolbar.html">
+    <link rel="import" href="bower_components/app-layout/app-scroll-effects/app-scroll-effects.html">
+    <link rel="import" href="bower_components/app-layout/app-scroll-effects/effects/waterfall.html">
+
+    <link rel="import" href="bower_components/app-layout/app-drawer/app-drawer.html">
+
+    <link rel="import" href="bower_components/iron-icons/iron-icons.html">
 
     <style is="custom-style" include="iron-flex iron-flex-factors iron-flex-alignment">
         paper-button[active]{
@@ -48,7 +60,7 @@
             text-align: center;
             color: black;
             text-decoration: none;  !important;
-            padding-bottom: 20px;
+            padding-bottom: 10px;
         }
         a{
             text-decoration: none; !important;
@@ -56,8 +68,7 @@
 
         /*postoji i neki prostor prazan uz levu ivicu a ne mogu da provalim sta je*/
         :root {
-            /*kako da kreiram da mi peper tabs (tj.flex) zauzim 80% display-a i da bude na sredini pozicioniran
-            width:80% ga skupi na 80%ali je uz levu ivicu*/
+
             /*tj. flex container bi trebao da zauzima 90% ali nije tako...nesto mi tu nije bas jasno,
             vamo sam imao 12 kolona, container, container-fluid...
             kontam da redjam elemente horizontalno ili vertikalno*/
@@ -102,12 +113,14 @@
         }
         .banner_ladies_tshirts{
             width: 100%;
+            height: 300px;
         }
         .banner_mens_tshirts{
             width: 100%;
+            height: 300px;
         }
         paper-menu-button{
-            background-color: gray;
+            /*background-color: gray;*/
             margin-top: 30px;
             --paper-menu-button-dropdown-background:white;
             --color:black;
@@ -122,46 +135,85 @@
         @media only screen and (min-width:630px ) {
             paper-menu-button{display: none}
         }
+        #example-full-width {
+            width: 100%;
+            --iron-image-width: 100%;
+            --iron-image-height: 300px;
+        }
 
+        .vlc {
+            @apply(--layout-center);
+            @apply(--layout-vertical);
+        }
+
+        app-header {
+            background-color: white;
+            --app-header-background-rear-layer: {
+                /* The header is blue when condensed */
+                background-color: blue;
+            };
+            --app-header-shadow: {
+                box-shadow: inset 0px 5px 2px -3px rgba(0, 0, 0, 0.2);
+            };
+        }
         /*------nisam resio css file!!!-------*/
         
     </style>
 </head>
 <body class="flex container">
-    <div class="layout horizontal left">
-        <paper-menu-button>
-            <paper-icon-button icon="menu" class="dropdown-trigger"></paper-icon-button>
-            <paper-menu class="dropdown-content">
-                <paper-item><a href="Men_s_Outerwear.html" class="link" tabindex="-1">Men's Outerwear</a></paper-item><br>
-                <paper-item><a href="Ladies_outerwear.html" class="link" tabindex="-1">Ladies Outerwear</a></paper-item><br>
-                <paper-item><a href="Men_s_T_Shirts.html" class="link" tabindex="-1">Men's T-Shirts</a></paper-item><br>
-                <paper-item><a href="Ladies_T_Shirts.html" class="link" tabindex="-1">Ladies T-Shirts</a></paper-item><br>
-            </paper-menu>
-        </paper-menu-button>
-    </div>
     <div class="layout vertical center">
         <h2>
             <a href="index_index.html">SHOP</a>
         </h2>
-        <div class="navigation">
-            <paper-tabs selected="0">
-                <paper-tab link>
-                    <a href="Men_s_Outerwear.html" class="link" tabindex="-1">Men's Outerwear</a>
-                </paper-tab>
-                <paper-tab link>
-                    <a href="Ladies_outerwear.html" class="link" tabindex="-1">Ladies Outerwear</a>
-                </paper-tab>
-                <paper-tab link>
-                    <a href="Men_s_T_Shirts.html" class="link" tabindex="-1">Men's T-Shirts</a>
-                </paper-tab>
-                <paper-tab link>
-                    <a href="Ladies_T_Shirts.html" class="link" tabindex="-1">Ladies T-Shirts</a>
-                </paper-tab>
-            </paper-tabs>
-        </div>
+    </div>
+    <div class="layout vertical center">
+        <app-header reveals effects="waterfall"  effects-config='{"waterfall": {"startsAt": 0, "endsAt": 0.5}}'>
+            <app-toolbar>
+                <paper-tabs selected="none">
+                    <paper-tab link>
+                        <a href="Men_s_Outerwear.html" class="link" tabindex="-1">Men's Outerwear</a>
+                    </paper-tab>
+                    <paper-tab link>
+                        <a href="Ladies_outerwear.html" class="link" tabindex="-1">Ladies Outerwear</a>
+                    </paper-tab>
+                    <paper-tab link>
+                        <a href="Men_s_T_Shirts.html" class="link" tabindex="-1">Men's T-Shirts</a>
+                    </paper-tab>
+                    <paper-tab link>
+                        <a href="Ladies_T_Shirts.html" class="link" tabindex="-1">Ladies T-Shirts</a>
+                    </paper-tab>
+                </paper-tabs>
+            </app-toolbar>
+        </app-header>
+    </div>
+
+
+    <div class="layout horizontal left">
+        <paper-menu-button>
+            <paper-icon-button icon="menu" class="dropdown-trigger" id="a"></paper-icon-button>
+        </paper-menu-button>
+         <app-drawer id="test">
+             <a href="index_index.html" class="link" tabindex="-1">
+                 <paper-item><b>SHOP</b></paper-item>
+             </a>
+             <a href="Men_s_Outerwear.html" class="link" tabindex="-1">
+                <paper-item raised>Men's Outerwear</paper-item>
+             </a>
+             <a href="Ladies_outerwear.html" class="link" tabindex="-1">
+                <paper-item>Ladies Outerwear</paper-item>
+             </a>
+             <a href="Men_s_T_Shirts.html" class="link" tabindex="-1">
+                <paper-item>Men's T-Shirts</paper-item>
+             </a>
+             <a href="Ladies_T_Shirts.html" class="link" tabindex="-1">
+                <paper-item>Ladies T-Shirts</paper-item>
+             </a>
+         </app-drawer>
+    </div>
+    <div class="layout vertical center">
         <div class="flex">
             <a href="Men_s_Outerwear.html">
-                <img src="https://shop.polymer-project.org/images/mens_outerwear.jpg" class="banner">
+                <iron-image src="https://shop.polymer-project.org/images/mens_outerwear.jpg" class="banner"></iron-image>
             </a>
 
             <h4>
@@ -175,7 +227,7 @@
     <div class="layout vertical center">
             <div class="flex">
                 <a href="Ladies_outerwear.html">
-                    <img src="https://shop.polymer-project.org/images/ladies_outerwear.jpg" class="banner">
+                    <iron-image src="https://shop.polymer-project.org/images/ladies_outerwear.jpg" class="banner"></iron-image>
                 </a>
                 <h4>
                     Ladies Outerwear<br>
@@ -188,10 +240,10 @@
         <div class="flex center">                                            <!--kako promeniti sirinu, tj da bude kao kod prethodnih banera?-->
             <div class="layout horizontal">
                 <a href="Men_s_T_Shirts.html">
-                    <img src="https://shop.polymer-project.org/images/mens_tshirts.jpg" class="banner_mens_tshirts banner">
+                    <iron-image id="example-full-width" src="https://shop.polymer-project.org/images/mens_tshirts.jpg" class="banner_mens_tshirts banner"></iron-image>
                 </a>
                 <a href="Ladies_T_Shirts.html">
-                    <img src="https://shop.polymer-project.org/images/ladies_tshirts.jpg" class="banner_ladies_tshirts banner">
+                    <iron-image id="example-full-width" src="https://shop.polymer-project.org/images/ladies_tshirts.jpg" class="banner_ladies_tshirts banner"></iron-image>
                 </a>
             </div>
             <div class="layout horizontal">
@@ -218,5 +270,10 @@
             <a href="https://www.polymer-project.org/1.0/">Made by Polymer</a>
         </div>
     </div>
+<script>
+    document.querySelector('#a').addEventListener('tap', function() {
+        document.querySelector('#test').open();
+    })
+</script>
 </body>
 </html>
